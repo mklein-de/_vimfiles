@@ -53,13 +53,9 @@ autocmd BufRead *.asc set viminfo=|setlocal noswapfile|exe "silent 1,$!gpg -q --
 autocmd BufWritePre *.asc 1,$!gpg -q --armor --encrypt --default-recipient-self
 autocmd BufWritePost *.asc undo
 
-imap <silent> <Leader>D <C-R>=strftime("%c")<CR>
 nmap <silent> <Leader>w :set wrap! wrap?<CR>
-imap <silent> <Leader>w <C-O>:set wrap! wrap?<CR>
 nmap <silent> <Leader>h :set hlsearch! hlsearch?<CR>
-imap <silent> <Leader>h <C-O>:set hlsearch! hlsearch?<CR>
 nmap <silent> <Leader>n :set number! number?<CR>
-imap <silent> <Leader>n <C-O>:set number! number?<CR>
 
 autocmd GUIEnter * winsize 90 40
 
