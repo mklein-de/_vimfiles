@@ -1,4 +1,4 @@
-" vim: ts=2 sw=2
+call pathogen#infect()
 
 set langmenu=en_US.UTF-8
 
@@ -18,6 +18,7 @@ set showbreak=>\
 set showmatch
 set autoindent
 set wildignore=*.o,*~,*.orig
+set title
 set wildmenu
 set isfname-==
 set dir=/tmp,/var/tmp
@@ -49,9 +50,9 @@ autocmd BufRead,BufNewFile *.a65 set ft=asm syntax=a6502
 autocmd BufRead,BufNewFile *.mod,*.def set ft=modula2
 autocmd BufRead,BufNewFile *.m set ft=objc
 autocmd BufRead,BufNewFile Portfile set ft=portfile
-autocmd BufRead *.asc set viminfo=|setlocal noswapfile|exe "silent 1,$!gpg -q --decrypt"|redraw!
-autocmd BufWritePre *.asc 1,$!gpg -q --armor --encrypt --default-recipient-self
-autocmd BufWritePost *.asc undo
+autocmd BufRead passwords.asc set viminfo=|setlocal noswapfile|exe "silent 1,$!gpg -q --decrypt"|redraw!
+autocmd BufWritePre passwords.asc 1,$!gpg -q --armor --encrypt --default-recipient-self
+autocmd BufWritePost passwords.asc undo
 
 nmap <silent> <Leader>w :set wrap! wrap?<CR>
 nmap <silent> <Leader>h :set hlsearch! hlsearch?<CR>
@@ -90,19 +91,20 @@ autocmd BufWritePre,FileWritePre *.html exe "%g/^ *<!-- _DATE_ -->/s/^\\( *<!-- 
 autocmd BufWritePre,FileWritePre *.sgml exe "%g/^ *<!-- _DATE_ --><date>/s+^\\( *<!-- _DATE_ --><date>\\).*$+\\1" .  strftime("%Y-%m-%d") . "+"
 
 if version >= 700
-	au! WinEnter * set cul
-	au! WinLeave * set nocul
-	au! InsertEnter * hi Cursorline guibg=lightred ctermbg=lightred
-	au! InsertLeave * hi Cursorline guibg=lightblue ctermbg=lightyellow
-	set cul
-	hi Cursorline guibg=lightyellow ctermbg=lightyellow cterm=none
+  au WinEnter * set cul
+  au WinLeave * set nocul
+  au InsertEnter * hi CursorLine cterm=none ctermbg=lightred guibg=lightmagenta
+  au InsertLeave * hi CursorLine cterm=none ctermbg=lightyellow guibg=yellow
+  hi CursorLine cterm=none ctermbg=lightyellow guibg=yellow
+  set cul
 endif
 
 highlight rightMargin none
-highlight statusline ctermfg=white ctermbg=darkblue cterm=none
-highlight statuslinenc ctermfg=black ctermbg=darkgrey cterm=none
-highlight visual ctermbg=lightblue cterm=none
-highlight linenr ctermbg=lightgray ctermfg=darkgrey cterm=none
+highlight StatusLine ctermfg=white ctermbg=darkblue cterm=none
+highlight StatusLineNC ctermfg=black ctermbg=darkgrey cterm=none
+highlight Visual ctermbg=lightblue cterm=none
+highlight Search cterm=none ctermbg=lightgreen guibg=green
+highlight LineNr ctermfg=darkblue ctermbg=lightgray
 
 " override bogus default mail highlighting
 hi link mailQuoted2 type
@@ -114,5 +116,8 @@ command! -nargs=* Make make <args> | cwindow 3
 
 syntax on
 
-auto BufEnter * let &titlestring = "VIM: " . expand("%:p")
-set title titlestring=%<%F%=%l/%L-%P titlelen=70
+"auto BufEnter * let &titlestring = "VIM: " . expand("%:p")
+"set title titlestring=%<%F%=%l/%L-%P titlelen=70
+set titlestring=VIM\ -\ %t%(\ %M%)%(\ (%{expand(\"%:~:.:h\")})%)%(\ %a%)
+
+set statusline=%<%f\ [%{&fileencoding}%{fugitive#statusline()}%H%R%M]%=%b\ 0x%B\ \ %l,%c%V\ \ %{vimbuddy#VimBuddy()}\ \ %P
