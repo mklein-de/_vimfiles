@@ -72,12 +72,24 @@ endif
 syntax on
 
 filetype plugin indent on
+let g:filetype_m = 'objc'
+
+autocmd BufRead,BufNewFile Portfile set ft=portfile
+autocmd BufRead,BufNewFile *.a65 set ft=asm syntax=a6502
+autocmd BufRead,BufNewFile *.mod,*.def set ft=modula2
+
+autocmd BufRead passwords.asc set viminfo=|setlocal noswapfile|exe "silent 1,$!gpg -q --decrypt"|redraw!
+autocmd BufWritePre passwords.asc 1,$!gpg -q --armor --encrypt --default-recipient-self
+autocmd BufWritePost passwords.asc undo
 
 runtime macros/matchit.vim
 
 " not really useful in original vi...
 map Y y$
 map Q gq
+
+command! Lcd lcd %:p:h
+command! Cd cd %:p:h
 
 " global toggle maps
 nmap <silent> <Leader>w :set wrap! wrap?<CR>
@@ -119,13 +131,6 @@ let g:snips_author = 'Michael Klein'
 ""set printoptions=paper:A4
 ""
 ""autocmd BufRead /tmp/pico.* set nobackup filetype=mail
-""autocmd BufRead,BufNewFile *.a65 set ft=asm syntax=a6502
-""autocmd BufRead,BufNewFile *.mod,*.def set ft=modula2
-""autocmd BufRead,BufNewFile *.m set ft=objc
-""autocmd BufRead,BufNewFile Portfile set ft=portfile
-""autocmd BufRead passwords.asc set viminfo=|setlocal noswapfile|exe "silent 1,$!gpg -q --decrypt"|redraw!
-""autocmd BufWritePre passwords.asc 1,$!gpg -q --armor --encrypt --default-recipient-self
-""autocmd BufWritePost passwords.asc undo
 ""
 ""
 ""autocmd GUIEnter * winsize 90 40
