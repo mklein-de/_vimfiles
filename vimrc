@@ -94,6 +94,9 @@ nmap <silent> <F12> :make<CR>
 " -> enhanced commentify
 nmap <silent> <F5> \c
 
+" snipMate
+let g:snips_author = 'Michael Klein'
+
 ""set langmenu=en_US.UTF-8
 ""
 ""set visualbell
@@ -136,8 +139,6 @@ nmap <silent> <F5> \c
 ""imap <F3> <C-o>zc
 ""nmap <F4> zo
 ""imap <F4> <C-o>zo
-""nmap <silent> <F5> :call ToggleCommentify('no')<CR>j
-""imap <silent> <F5> <C-O>:call ToggleCommentify('no')<CR><C-O>j
 ""
 ""imap <silent> <F9> <C-o>:cwindow<CR>
 ""imap <silent> <F10> <C-o>:cp<CR>
