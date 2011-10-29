@@ -1,4 +1,4 @@
-call pathogen#infect()
+silent! call pathogen#infect()
 
 " misc stuff
 set nocompatible
@@ -27,7 +27,11 @@ set laststatus=2
 set title
 
 set titlestring=VIM\ -\ %t%(\ %M%)%(\ (%{expand(\"%:~:.:h\")})%)%(\ %a%)
-set statusline=%<%f\ [%{&fileencoding}%{fugitive#statusline()}%H%R%M]%=%b\ 0x%B\ \ %l,%c%V\ \ %{vimbuddy#VimBuddy()}\ \ %P
+if version >= 700
+  set statusline=%<%f\ [%{&fileencoding}%{fugitive#statusline()}%H%R%M]%=%b\ 0x%B\ \ %l,%c%V\ \ %{vimbuddy#VimBuddy()}\ \ %P
+else
+  set statusline=%<%f\ [%{&fileencoding}%H%R%M]%=%b\ 0x%B\ \ %l,%c%V\ \ %P
+endif
 
 " cterm colors
 if &t_Co < 256
@@ -97,7 +101,9 @@ nmap <silent> <Leader>h :set hlsearch! hlsearch?<CR>
 nmap <silent> <Leader>n :set number! number?<CR>
 
 " quickfix maps
-autocmd QuickFixCmdPost make :cwindow
+if version >= 700
+  autocmd QuickFixCmdPost make :cwindow
+endif
 nmap <silent> <F9>  :cl<CR>
 nmap <silent> <F10> :cp<CR>
 nmap <silent> <F11> :cn<CR>
