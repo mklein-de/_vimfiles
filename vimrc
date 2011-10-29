@@ -92,6 +92,7 @@ nmap <silent> <F11> :cn<CR>
 nmap <silent> <F12> :make<CR>
 
 " -> enhanced commentify
+let g:EnhCommentifyBindInInsert = 'no'
 nmap <silent> <F5> \c
 
 " snipMate
@@ -99,7 +100,6 @@ let g:snips_author = 'Michael Klein'
 
 ""set langmenu=en_US.UTF-8
 ""
-""set visualbell
 ""set modelines=5
 ""set dir=/tmp,/var/tmp
 ""
@@ -117,11 +117,6 @@ let g:snips_author = 'Michael Klein'
 ""autocmd!
 ""
 ""set printoptions=paper:A4
-""
-""if &diff
-""	nmap <silent> <Leader>p :diffput<CR>]c
-""	nmap <silent> <Leader>g :diffget<CR>]c
-""endif
 ""
 ""autocmd BufRead /tmp/pico.* set nobackup filetype=mail
 ""autocmd BufRead,BufNewFile *.a65 set ft=asm syntax=a6502
