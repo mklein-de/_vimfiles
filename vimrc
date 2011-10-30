@@ -5,6 +5,7 @@ set nocompatible
 set autowrite
 set backspace=indent,eol,start
 set isfname-==
+set modelines=5
 set scrolloff=3
 set showbreak=>\ 
 set showcmd
@@ -112,7 +113,6 @@ let g:snips_author = 'Michael Klein'
 
 ""set langmenu=en_US.UTF-8
 ""
-""set modelines=5
 ""set dir=/tmp,/var/tmp
 ""
 ""if has("mouse")
