@@ -5,7 +5,7 @@
 "
 " Usage:       Insert %{VimBuddy()} into your 'statusline'
 "
-function vimbuddy#VimBuddy()
+function VimBuddy()
     " Take a copy for others to see the messages
     if ! exists("s:vimbuddy_msg")
         let s:vimbuddy_msg = v:statusmsg
