@@ -47,5 +47,7 @@ set shiftwidth=4
 
 syntax sync fromstart
 
+highlight link cSpaceError SpellBad
+
 let b:highlight_space_errors = 1
 silent call <SID>HLSpaceErr()
