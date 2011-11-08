@@ -2,6 +2,8 @@ set et tw=80
 set iskeyword+=.
 set iskeyword+=-
 
+set commentstring=#%s
+
 if !exists("g:did_load_portfile_functions")
 
   function s:Trim(arg)
