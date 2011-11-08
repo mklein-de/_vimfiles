@@ -59,7 +59,7 @@ highlight LineNr       guifg=darkblue guibg=lightgray
 " cursorline
 if version >= 700
   if &t_Co < 256
-    au InsertEnter * hi CursorLine ctermbg=red      cterm=none
+    au InsertEnter * hi CursorLine ctermbg=none     cterm=bold
     au InsertLeave * hi CursorLine ctermbg=yellow   cterm=none
   else
     au InsertEnter * hi CursorLine ctermbg=lightred cterm=none
