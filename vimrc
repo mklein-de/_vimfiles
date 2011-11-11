@@ -15,6 +15,7 @@ set wildmenu wildignore=*.o,*~,*.orig
 
 if has("gui_running")
   set visualbell
+  set guifont=DejaVu\ Sans\ Mono\ 10
 end
 
 " autoindenting
@@ -42,8 +43,8 @@ if &t_Co < 256
   highlight Search       ctermbg=green
   highlight LineNr       ctermfg=blue cterm=bold
 else
-  highlight StatusLine   ctermfg=white ctermbg=darkblue cterm=none
-  highlight StatusLineNC ctermfg=black ctermbg=darkgrey cterm=none
+  highlight StatusLine   ctermfg=white ctermbg=darkblue ctermfg=white cterm=none
+  highlight StatusLineNC ctermfg=black ctermbg=darkgrey ctermfg=lightgray cterm=none
   highlight Visual       ctermbg=lightblue
   highlight Search       ctermbg=lightgreen
   highlight LineNr       ctermfg=darkblue ctermbg=lightgray
