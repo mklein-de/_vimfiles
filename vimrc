@@ -121,6 +121,10 @@ highlight link SpaceError SpellBad
 " snipMate
 let g:snips_author = 'Michael Klein'
 
+" alternate
+let g:alternateExtensions_m = "h"
+let g:alternateExtensions_h = "c,cpp,cxx,cc,CC,m"
+
 ""set langmenu=en_US.UTF-8
 ""
 ""set dir=/tmp,/var/tmp
