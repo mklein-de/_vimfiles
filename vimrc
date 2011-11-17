@@ -57,6 +57,11 @@ highlight Visual       guibg=lightblue
 highlight Search       guibg=lightgreen
 highlight LineNr       guifg=darkblue guibg=lightgray
 
+highlight clear CurrentWord
+highlight CurrentWord  cterm=underline term=underline gui=underline
+
+au CursorHold * call matchcurrentword#MatchCurrentWord()
+
 " cursorline
 if version >= 700
   if &t_Co < 256
@@ -106,6 +111,7 @@ nmap <silent> <Leader>n :set number! number?<CR>
 if version >= 700
   autocmd QuickFixCmdPost make :cwindow
 endif
+
 nmap <silent> <F9>  :cl<CR>
 nmap <silent> <F10> :cp<CR>
 nmap <silent> <F11> :cn<CR>
