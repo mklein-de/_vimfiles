@@ -57,7 +57,6 @@ highlight Visual       guibg=lightblue
 highlight Search       guibg=lightgreen
 highlight LineNr       guifg=darkblue guibg=lightgray
 
-highlight clear CurrentWord
 highlight CurrentWord  cterm=underline term=underline gui=underline
 
 au CursorHold * call matchcurrentword#MatchCurrentWord()
