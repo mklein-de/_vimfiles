@@ -1,0 +1,7 @@
+snippet nse
+	NSEnumerator * ${2:e} = [${1:/*collection*/} objectEnumerator];
+	${4:id} ${3:obj};
+	while(($3 = [$2 nextObject]) != nil)
+	{
+		${5:/* code */}
+	}
