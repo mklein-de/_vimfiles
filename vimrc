@@ -31,6 +31,7 @@ set title
 set titlestring=VIM\ -\ %t%(\ %M%)%(\ (%{expand(\"%:~:.:h\")})%)%(\ %a%)
 if version >= 700
   set statusline=%<%f\ [%{&fileencoding}%{fugitive#statusline()}%H%R%M]%=%b\ 0x%B\ \ %l,%c%V\ \ %{VimBuddy()}\ \ %P
+  "set statusline=%<%f\ [%{&fileencoding}%{fugitive#statusline()}%H%R%M]\ \ %.60{whereami#WhereAmI()}%=%b\ 0x%B\ \ %l,%c%V\ \ %{VimBuddy()}\ \ %P
 else
   set statusline=%<%f\ [%{&fileencoding}%H%R%M]%=%b\ 0x%B\ \ %l,%c%V\ \ %{VimBuddy()}\ \ %P
 endif
@@ -111,6 +112,8 @@ if version >= 700
   autocmd QuickFixCmdPost make :cwindow
 endif
 
+nmap <silent> <F2> :echo whereami#WhereAmI()<CR>
+
 nmap <silent> <F9>  :cl<CR>
 nmap <silent> <F10> :cp<CR>
 nmap <silent> <F11> :cn<CR>
@@ -130,57 +133,6 @@ let g:snips_author = 'Michael Klein'
 let g:alternateExtensions_m = "h"
 let g:alternateExtensions_h = "c,cpp,cxx,cc,CC,m"
 
-""set langmenu=en_US.UTF-8
-""
-""set dir=/tmp,/var/tmp
-""
-""if has("mouse")
-""  set mouse=n
-""endif
-""
-""let c_syntax_for_h=1
-""
-""" overridden by .gvimrc
-""if &term =~ "linux"
-""	set background=dark
-""endif
-""
-""autocmd!
-""
-""set printoptions=paper:A4
-""
-""autocmd BufRead /tmp/pico.* set nobackup filetype=mail
-""
-""
-""autocmd GUIEnter * winsize 90 40
-""
-""nmap <F3> zc
-""imap <F3> <C-o>zc
-""nmap <F4> zo
-""imap <F4> <C-o>zo
-""
-""imap <silent> <F9> <C-o>:cwindow<CR>
-""imap <silent> <F10> <C-o>:cp<CR>
-""imap <silent> <F11> <C-o>:cn<CR>
-""imap <silent> <F12> <C-o>:Make<CR>
-""
-""nmap <C-j> <C-w>j
-""nmap <C-k> <C-w>k
-""nmap <C-h> <C-w>h
-""nmap <C-l> <C-w>l
-""
-""
-""nmap <Leader>K :execute "Man " expand("<cword>")<CR>
-""
-""autocmd BufWritePre,FileWritePre *.html exe "%g/^ *<!-- _DATE_ -->/s/^\\( *<!-- _DATE_ -->\\).*$/\\1" .  strftime("%a %b %d %T %Z %Y") . "/"
-""autocmd BufWritePre,FileWritePre *.sgml exe "%g/^ *<!-- _DATE_ --><date>/s+^\\( *<!-- _DATE_ --><date>\\).*$+\\1" .  strftime("%Y-%m-%d") . "+"
-""
-""highlight rightMargin none
-""
-""" override bogus default mail highlighting
-""hi link mailQuoted2 type
-""hi link mailQuoted4 type
-""hi link mailQuoted6 type
-""
-""command! Cfd lcd %:p:h
-""command! -nargs=* Make make <args> | cwindow 3
+" legacy
+autocmd BufWritePre,FileWritePre *.html exe "%g/^ *<!-- _DATE_ -->/s/^\\( *<!-- _DATE_ -->\\).*$/\\1" .  strftime("%a %b %d %T %Z %Y") . "/"
+autocmd BufWritePre,FileWritePre *.sgml exe "%g/^ *<!-- _DATE_ --><date>/s+^\\( *<!-- _DATE_ --><date>\\).*$+\\1" .  strftime("%Y-%m-%d") . "+"
