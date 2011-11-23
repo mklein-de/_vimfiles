@@ -59,10 +59,10 @@ highlight LineNr       guifg=darkblue guibg=lightgray
 
 highlight CurrentWord  cterm=underline term=underline gui=underline
 
-au CursorHold * call matchcurrentword#MatchCurrentWord()
-
-" cursorline
+" cursorline and current word highlighting
 if version >= 700
+  au CursorHold * call matchcurrentword#MatchCurrentWord()
+
   if &t_Co < 256
     au InsertEnter * hi CursorLine ctermbg=none     cterm=bold
     au InsertLeave * hi CursorLine ctermbg=yellow   cterm=none
