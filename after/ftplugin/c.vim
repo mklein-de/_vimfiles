@@ -29,3 +29,5 @@ syntax sync fromstart
 
 let b:highlight_space_errors = 1
 silent call spaceerror#HLSpaceErr()
+
+let b:whereami_ctags_opts = "--c-kinds=cfgmnsu"

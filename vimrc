@@ -124,7 +124,7 @@ let g:EnhCommentifyBindInInsert = 'no'
 nmap <silent> <F5> \c
 
 nmap <silent> <Leader><space> :call spaceerror#ToggleHLSpaceErr()<CR>
-highlight link SpaceError SpellBad 
+highlight link SpaceError SpellBad
 
 " snipMate
 let g:snips_author = 'Michael Klein'
