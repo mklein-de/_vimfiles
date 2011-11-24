@@ -23,8 +23,7 @@ set cindent
 set cino=(0,+0,:0
 set comments=sr:/*,mbl2:*,ex:*/
 
-set expandtab
-set shiftwidth=4
+set smarttab sw=4 ts=4 et
 
 syntax sync fromstart
 
