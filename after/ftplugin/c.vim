@@ -20,12 +20,12 @@ vmap <buffer> <silent> <LocalLeader># <esc>'<O#if 0<esc>'>o#endif<esc>0
 
 set fo-=t fo+=croql
 set cindent
-set cino=(0,+0,:0
+set cino=(0,:0,g0,t0
 set comments=sr:/*,mbl2:*,ex:*/
 
 set smarttab sw=4 ts=4 et
 
-syntax sync fromstart
+syntax sync minlines=2000
 
 let b:highlight_space_errors = 1
 silent call spaceerror#HLSpaceErr()
