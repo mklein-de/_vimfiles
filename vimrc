@@ -30,8 +30,9 @@ set title
 
 set titlestring=VIM\ -\ %t%(\ %M%)%(\ (%{expand(\"%:~:.:h\")})%)%(\ %a%)
 if version >= 700
+  "set statusline=%<%f\ [%{&fileencoding}%H%R%M]%=%b\ 0x%B\ \ %l,%c%V\ \ %{VimBuddy()}\ \ %P
   set statusline=%<%f\ [%{&fileencoding}%{fugitive#statusline()}%H%R%M]%=%b\ 0x%B\ \ %l,%c%V\ \ %{VimBuddy()}\ \ %P
-  "set statusline=%<%f\ [%{&fileencoding}%{fugitive#statusline()}%H%R%M]\ \ %.60{whereami#WhereAmI()}%=%b\ 0x%B\ \ %l,%c%V\ \ %{VimBuddy()}\ \ %P
+  "set statusline=%<%f\ [%{&fileencoding}%{fugitive#statusline()}%H%R%M]\ \ %.40{whereami#WhereAmI()}%=%b\ 0x%B\ \ %l,%c%V\ \ %{VimBuddy()}\ \ %P
 else
   set statusline=%<%f\ [%{&fileencoding}%H%R%M]%=%b\ 0x%B\ \ %l,%c%V\ \ %{VimBuddy()}\ \ %P
 endif
@@ -122,6 +123,7 @@ nmap <silent> <F12> :make<CR>
 " -> enhanced commentify
 let g:EnhCommentifyBindInInsert = 'no'
 nmap <silent> <F5> \c
+vmap <silent> <F5> \c
 
 nmap <silent> <Leader><space> :call spaceerror#ToggleHLSpaceErr()<CR>
 highlight link SpaceError SpellBad
