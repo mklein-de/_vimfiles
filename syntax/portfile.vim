@@ -4,7 +4,7 @@ syn keyword portfileVariable contained
 \ macosx_deployment_target copy_log_files conflicts replaced_by add_users
 \ installs_libs prefix libpath portpath workpath worksrcpath filesdir
 \ filespath distpath applications_dir frameworks_dir destroot supported_archs
-\ patchfiles dist_subdir license developer_dir distfiles
+\ patchfiles dist_subdir license developer_dir distfiles sha256 rmd160
 
 syn match portfileVariable "use_\(automake\|autoconf\|configure\|parallel_build\)" contained
 syn match portfileVariable "use_\(dmg\|zip\|bzip2\|lzma\|xz\|7z\)" contained
@@ -13,7 +13,7 @@ syn match portfileVariable "os\.\(arch\|version\|major\|endian\|platform\|subpla
 syn match portfileVariable "install\.\(user\|group\)" contained
 syn match portfileVariable "livecheck\.\(type\|name\|distname\|version\|url\|regex\|md5\)" contained
 syn match portfileVariable "xcode\.\(target\|configuration\|project\|destroot\.settings\(-append\)\?\)" contained
-syn match portfileVariable "configure\.\(args\|ldflags\)\(-append\)\?" contained
+syn match portfileVariable "configure\.\(args\|ldflags\)\(-append\|-delete\)\?" contained
 syn match portfileVariable "extract\.\(suffix\)" contained
 syn match portfileVariable "fetch\.\(type\)" contained
 syn match portfileVariable "build\.\(dir\|type\|target\)" contained
@@ -31,8 +31,8 @@ syn match portfileTab "\t"
 syn match portfileTrailingSpace "\s\+$"
 syn match portfileComment "#.*$"
 syn match portfileExpansion "\${\K\?\k*}" contains=portfileIdentifier
-syn match portfileLine "^\K\k*\ze\s" contains=portfileIdentifier
-syn match portfilePhase "^\(\(pre\|post\)-\)\?\(fetch\|extract\|patch\|configure\|build\|destroot\)\ze\s*{"
+syn match portfileLine "^\s*\K\k*\ze\s" contains=portfileIdentifier
+syn match portfilePhase "^\s*\(\(pre\|post\)-\)\?\(fetch\|extract\|patch\|configure\|build\|destroot\)\ze\s*{"
 
 syn match portfilePortSystem "^PortSystem\ze\s\+[0-9.]\+"
 syn match portfilePortGroup "^PortGroup\ze\s\+\(xcode\|qt4\|cmake\|python26\)*\s\+[0-9.]\+"
