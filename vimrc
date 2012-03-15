@@ -139,3 +139,18 @@ let g:alternateExtensions_h = "c,cpp,cxx,cc,CC,m"
 " legacy
 autocmd BufWritePre,FileWritePre *.html exe "%g/^ *<!-- _DATE_ -->/s/^\\( *<!-- _DATE_ -->\\).*$/\\1" .  strftime("%a %b %d %T %Z %Y") . "/"
 autocmd BufWritePre,FileWritePre *.sgml exe "%g/^ *<!-- _DATE_ --><date>/s+^\\( *<!-- _DATE_ --><date>\\).*$+\\1" .  strftime("%Y-%m-%d") . "+"
+
+" handle foo.c:123
+function TryAlternateFilenames()
+  let fname = expand("%")
+  let lastcolon = strridx(fname, ":")
+  if lastcolon > 0
+    let f = fname[0:lastcolon-1]
+    let n = fname[lastcolon+1:-1]
+    if filereadable(f) && match(n, '^[0-9]\+$') >= 0
+      exe ':e +'.n.' '.escape(f, ' ').'|bd #'
+    endif
+  endif
+endfun
+
+autocmd BufNewFile * call TryAlternateFilenames()
