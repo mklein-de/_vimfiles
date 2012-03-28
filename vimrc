@@ -13,6 +13,8 @@ set showmatch
 set suffixes=.bak,.swp,.o
 set wildmenu wildignore=*.o,*~,*.orig
 
+syntax on
+
 if has("gui_running")
   set visualbell
   set guifont=DejaVu\ Sans\ Mono\ 10
@@ -60,17 +62,18 @@ highlight Search       guibg=lightgreen
 highlight LineNr       guifg=darkblue guibg=lightgray
 
 highlight CurrentWord  cterm=underline term=underline gui=underline
+highlight Error        ctermfg=red ctermbg=none cterm=bold,underline guifg=red guibg=NONE gui=undercurl
 
 " cursorline and current word highlighting
 if version >= 700
   au CursorHold * call matchcurrentword#MatchCurrentWord()
 
   if &t_Co < 256
-    au InsertEnter * hi CursorLine ctermbg=none     cterm=bold
-    au InsertLeave * hi CursorLine ctermbg=yellow   cterm=none
+    au InsertEnter * hi CursorLine ctermbg=none   cterm=bold
+    au InsertLeave * hi CursorLine ctermbg=yellow cterm=none
   else
-    au InsertEnter * hi CursorLine ctermbg=lightred cterm=none
-    au InsertLeave * hi CursorLine ctermbg=yellow   cterm=none
+    au InsertEnter * hi CursorLine ctermbg=lightred    cterm=none
+    au InsertLeave * hi CursorLine ctermbg=lightyellow cterm=none
   end
   au InsertEnter * hi CursorLine guibg=lightred
   au InsertLeave * hi CursorLine guibg=yellow
@@ -80,8 +83,6 @@ if version >= 700
   au WinLeave * set nocul
   doautocmd WinEnter
 endif
-
-syntax on
 
 filetype plugin indent on
 let g:filetype_m = 'objc'
