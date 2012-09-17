@@ -62,7 +62,10 @@ highlight Search       guibg=lightgreen
 highlight LineNr       guifg=darkblue guibg=lightgray
 
 highlight CurrentWord  cterm=underline term=underline gui=underline
-highlight Error        ctermfg=red ctermbg=none cterm=bold,underline guifg=red guibg=NONE gui=undercurl
+highlight Error        ctermfg=red ctermbg=none cterm=bold,underline guifg=red guibg=NONE
+if version >= 700
+  highlight Error      gui=undercurl
+end
 
 " cursorline and current word highlighting
 if version >= 700
