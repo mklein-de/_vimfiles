@@ -17,7 +17,13 @@ syntax on
 
 if has("gui_running")
   set visualbell
-  set guifont=DejaVu\ Sans\ Mono\ 10
+  if has("gui_mac")
+    set guifont=DejaVuSansMono:h11
+  else
+    "set guifont=DejaVu\ Sans\ Mono\ 8
+    set guifont=Source\ Code\ Pro\ Semi-Bold\ 8
+  endif
+
 end
 
 " autoindenting
