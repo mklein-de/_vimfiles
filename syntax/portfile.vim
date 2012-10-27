@@ -4,7 +4,9 @@ syn keyword portfileVariable contained
 \ macosx_deployment_target copy_log_files conflicts replaced_by add_users
 \ installs_libs prefix libpath portpath workpath worksrcpath filesdir
 \ filespath distpath applications_dir frameworks_dir destroot supported_archs
-\ patchfiles dist_subdir license developer_dir distfiles sha256 rmd160
+\ patchfiles dist_subdir license developer_dir distfiles universal_variant
+
+syn keyword portfileChecksumAlgorithm md5 sha256 rmd160
 
 syn match portfileVariable "use_\(automake\|autoconf\|configure\|parallel_build\)" contained
 syn match portfileVariable "use_\(dmg\|zip\|bzip2\|lzma\|xz\|7z\)" contained
@@ -13,7 +15,8 @@ syn match portfileVariable "os\.\(arch\|version\|major\|endian\|platform\|subpla
 syn match portfileVariable "install\.\(user\|group\)" contained
 syn match portfileVariable "livecheck\.\(type\|name\|distname\|version\|url\|regex\|md5\)" contained
 syn match portfileVariable "xcode\.\(target\|configuration\|project\|destroot\.settings\(-append\)\?\)" contained
-syn match portfileVariable "configure\.\(args\|ldflags\)\(-append\|-delete\)\?" contained
+syn match portfileVariable "configure\.\(args\|cflags\|cppflags\|ldflags\)\(-append\|-delete\)\?" contained
+syn match portfileVariable "configure\.\(compiler\)" contained
 syn match portfileVariable "extract\.\(suffix\)" contained
 syn match portfileVariable "fetch\.\(type\)" contained
 syn match portfileVariable "build\.\(dir\|type\|target\)" contained
@@ -48,3 +51,4 @@ hi link portfileComment Comment
 hi link portfilePhase PreProc
 hi link portfilePortSystem Type
 hi link portfilePortGroup Type
+hi link portfileChecksumAlgorithm Keyword
