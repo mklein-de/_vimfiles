@@ -6,7 +6,7 @@ syn keyword portfileVariable contained
 \ filespath distpath applications_dir frameworks_dir destroot supported_archs
 \ patchfiles dist_subdir license developer_dir distfiles universal_variant
 
-syn keyword portfileChecksumAlgorithm md5 sha256 rmd160
+syn keyword portfileChecksumAlgorithm md5 rmd160 sha1 sha256
 
 syn match portfileVariable "use_\(automake\|autoconf\|configure\|parallel_build\)" contained
 syn match portfileVariable "use_\(dmg\|zip\|bzip2\|lzma\|xz\|7z\)" contained
