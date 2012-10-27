@@ -21,7 +21,7 @@ if has("gui_running")
     set guifont=DejaVuSansMono:h11
   else
     "set guifont=DejaVu\ Sans\ Mono\ 8
-    set guifont=Source\ Code\ Pro\ Semi-Bold\ 8
+    set guifont=Source\ Code\ Pro\ 8
   endif
 
 end

@@ -44,6 +44,13 @@ snippet init
 		[super init];
 		return self;
 	}
+snippet enum
+	${1:id} ${2:obj};
+	NSEnumerator * ${3:e} = [${4:/* container/} objectEnumerator];
+	while (($2 = [$3 nextObject]) != nil)
+	{
+		${5:/* code */}
+	}
 snippet ifself
 	if (self = [super init]) {
 		${1:/* code */}
