@@ -45,38 +45,36 @@ else
   set statusline=%<%f\ [%{&fileencoding}%H%R%M]%=%b\ 0x%B\ \ %l,%c%V\ \ %{VimBuddy()}\ \ %P
 endif
 
-" cterm colors
-if &t_Co < 256
-  highlight StatusLine   ctermfg=white ctermbg=blue cterm=none
-  highlight StatusLineNC ctermfg=white ctermbg=black cterm=none
-  highlight Visual       ctermbg=cyan  cterm=none
-  highlight Search       ctermbg=green
-  highlight LineNr       ctermfg=blue cterm=bold
-else
-  highlight StatusLine   ctermfg=white ctermbg=darkblue ctermfg=white cterm=none
-  highlight StatusLineNC ctermfg=black ctermbg=darkgrey ctermfg=lightgray cterm=none
-  highlight Visual       ctermbg=lightblue
-  highlight Search       ctermbg=lightgreen
-  highlight LineNr       ctermfg=darkblue ctermbg=lightgray
-end
+function UpdateColors()
+  " cterm colors
+  if &t_Co < 256
+    highlight StatusLine   ctermfg=white ctermbg=blue cterm=none
+    highlight StatusLineNC ctermfg=white ctermbg=black cterm=none
+    highlight Visual       ctermbg=cyan  cterm=none
+    highlight Search       ctermbg=green
+    highlight LineNr       ctermfg=blue cterm=bold
+  else
+    highlight StatusLine   ctermfg=white ctermbg=darkblue ctermfg=white cterm=none
+    highlight StatusLineNC ctermfg=black ctermbg=darkgrey ctermfg=lightgray cterm=none
+    highlight Visual       ctermbg=lightblue
+    highlight Search       ctermbg=lightgreen
+    highlight LineNr       ctermfg=darkblue ctermbg=lightgray
+  end
 
-" gui colors
-highlight StatusLine   guifg=white guibg=darkblue gui=none
-highlight StatusLineNC guifg=black guibg=darkgrey gui=none
-highlight Visual       guibg=lightblue
-highlight Search       guibg=lightgreen
-highlight LineNr       guifg=darkblue guibg=lightgray
+  " gui colors
+  highlight StatusLine   guifg=white guibg=darkblue gui=none
+  highlight StatusLineNC guifg=black guibg=darkgrey gui=none
+  highlight Visual       guibg=lightblue
+  highlight Search       guibg=lightgreen
+  highlight LineNr       guifg=darkblue guibg=lightgray
 
-highlight CurrentWord  cterm=underline term=underline gui=underline
-highlight Error        ctermfg=red ctermbg=none cterm=bold,underline guifg=red guibg=NONE
-if version >= 700
-  highlight Error      gui=undercurl
-end
+  highlight CurrentWord  cterm=underline term=underline gui=underline
+  highlight Error        ctermfg=red ctermbg=none cterm=bold,underline guifg=red guibg=NONE
+  if version >= 700
+    highlight Error      gui=undercurl
+  end
 
-" cursorline and current word highlighting
-if version >= 700
-  au CursorHold * call matchcurrentword#MatchCurrentWord()
-
+  " cursorline and current word highlighting
   if &t_Co < 256
     au InsertEnter * hi CursorLine ctermbg=none   cterm=bold
     au InsertLeave * hi CursorLine ctermbg=yellow cterm=none
@@ -86,11 +84,18 @@ if version >= 700
   end
   au InsertEnter * hi CursorLine guibg=lightred
   au InsertLeave * hi CursorLine guibg=yellow
-  doautocmd InsertLeave
 
+  doautocmd InsertLeave
+  doautocmd WinEnter
+endfun
+
+au VimEnter * call UpdateColors()
+
+" current word highlighting
+if version >= 700
+  au CursorHold * call matchcurrentword#MatchCurrentWord()
   au WinEnter * set cul
   au WinLeave * set nocul
-  doautocmd WinEnter
 endif
 
 filetype plugin indent on
