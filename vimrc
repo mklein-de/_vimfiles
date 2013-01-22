@@ -11,7 +11,7 @@ set showbreak=>\
 set showcmd
 set showmatch
 set suffixes=.bak,.swp,.o
-set wildmenu wildignore=*.o,*~,*.orig
+set wildmenu wildignore=*.o,*~,*.orig wildmode=longest,list,full
 
 syntax on
 
