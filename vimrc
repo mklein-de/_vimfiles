@@ -123,6 +123,7 @@ command! Cd cd %:p:h
 nmap <silent> <Leader>w :set wrap! wrap?<CR>
 nmap <silent> <Leader>h :set hlsearch! hlsearch?<CR>
 nmap <silent> <Leader>n :set number! number?<CR>
+nmap <silent> <Leader>t :TlistToggle<CR>
 
 " quickfix maps
 if version >= 700
