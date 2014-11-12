@@ -170,3 +170,5 @@ function TryAlternateFilenames()
 endfun
 
 autocmd BufNewFile * call TryAlternateFilenames()
+
+hi MatchParen cterm=bold term=bold ctermbg=NONE ctermfg=darkgray
