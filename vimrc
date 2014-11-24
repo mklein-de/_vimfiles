@@ -169,6 +169,10 @@ function TryAlternateFilenames()
   endif
 endfun
 
+function SyntaxItem()
+    return synIDattr(synID(line("."),col("."),1),"name")
+endfun
+
 autocmd BufNewFile * call TryAlternateFilenames()
 
 hi MatchParen cterm=bold term=bold ctermbg=NONE ctermfg=darkgray
