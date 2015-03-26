@@ -75,10 +75,7 @@ function UpdateColors()
   end
 
   " cursorline and current word highlighting
-  if &t_Co < 256
-    au InsertEnter * hi CursorLine ctermbg=none   cterm=bold
-    au InsertLeave * hi CursorLine ctermbg=yellow cterm=none
-  else
+  if &t_Co >= 256
     au InsertEnter * hi CursorLine ctermbg=lightred    cterm=none
     au InsertLeave * hi CursorLine ctermbg=lightyellow cterm=none
   end
@@ -138,9 +135,8 @@ nmap <silent> <F11> :cn<CR>
 nmap <silent> <F12> :make<CR>
 
 " -> enhanced commentify
-let g:EnhCommentifyBindInInsert = 'no'
-nmap <silent> <F5> \c
-vmap <silent> <F5> \c
+nmap <silent> <F5> \c<space>j
+vmap <silent> <F5> \c<space>
 
 nmap <silent> <Leader><space> :call spaceerror#ToggleHLSpaceErr()<CR>
 highlight link SpaceError SpellBad
