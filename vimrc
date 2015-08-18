@@ -172,3 +172,6 @@ endfun
 autocmd BufNewFile * call TryAlternateFilenames()
 
 hi MatchParen cterm=bold term=bold ctermbg=NONE ctermfg=darkgray
+
+autocmd BufNewFile,BufRead * let b:highlight_space_errors = 1
+autocmd BufNewFile,BufRead * silent! call spaceerror#HLSpaceErr()

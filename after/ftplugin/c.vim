@@ -27,7 +27,4 @@ set smarttab sw=4 ts=4 et
 
 syntax sync minlines=2000
 
-let b:highlight_space_errors = 1
-silent! call spaceerror#HLSpaceErr()
-
 let b:whereami_ctags_opts = "--c-kinds=cfgmnsu"

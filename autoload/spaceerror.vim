@@ -5,8 +5,8 @@ let g:spacerror_plugin_loaded = 1
 
 function spaceerror#HLSpaceErr()
   if exists("b:highlight_space_errors") && b:highlight_space_errors!=0
-    syn match SpaceError display "\t\+"
-    syn match SpaceError display "\s\+$"
+    syn match SpaceError "\t\+" containedin=ALL
+    syn match SpaceError "\s\+$" containedin=ALL
     echo "Space error display is ON"
   else
     syn clear SpaceError
