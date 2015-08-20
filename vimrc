@@ -138,6 +138,11 @@ nmap <silent> <F12> :make<CR>
 nmap <silent> <F5> \c<space>j
 vmap <silent> <F5> \c<space>
 
+nnoremap <Right> <C-w>l
+nnoremap <Left>  <C-w>h
+nnoremap <Up>    <C-w>k
+nnoremap <Down>  <C-w>j
+
 nmap <silent> <Leader><space> :call spaceerror#ToggleHLSpaceErr()<CR>
 highlight link SpaceError SpellBad
 
