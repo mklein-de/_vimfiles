@@ -1,6 +1,3 @@
-set sw=4 et
-
-let b:highlight_space_errors = 1
-silent call spaceerror#HLSpaceErr()
+set sw=4 et ts=4
 
 autocmd BufWritePre <buffer> 1,$s/\s\+$//e|call histdel("/",-1)

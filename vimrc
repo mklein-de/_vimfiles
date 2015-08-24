@@ -75,10 +75,7 @@ function UpdateColors()
   end
 
   " cursorline and current word highlighting
-  if &t_Co < 256
-    au InsertEnter * hi CursorLine ctermbg=none   cterm=bold
-    au InsertLeave * hi CursorLine ctermbg=yellow cterm=none
-  else
+  if &t_Co >= 256
     au InsertEnter * hi CursorLine ctermbg=lightred    cterm=none
     au InsertLeave * hi CursorLine ctermbg=lightyellow cterm=none
   end
@@ -138,9 +135,13 @@ nmap <silent> <F11> :cn<CR>
 nmap <silent> <F12> :make<CR>
 
 " -> enhanced commentify
-let g:EnhCommentifyBindInInsert = 'no'
-nmap <silent> <F5> \c
-vmap <silent> <F5> \c
+nmap <silent> <F5> \c<space>j
+vmap <silent> <F5> \c<space>
+
+nnoremap <Right> <C-w>l
+nnoremap <Left>  <C-w>h
+nnoremap <Up>    <C-w>k
+nnoremap <Down>  <C-w>j
 
 nmap <silent> <Leader><space> :call spaceerror#ToggleHLSpaceErr()<CR>
 highlight link SpaceError SpellBad
@@ -169,4 +170,16 @@ function TryAlternateFilenames()
   endif
 endfun
 
+function SyntaxItem()
+    return synIDattr(synID(line("."),col("."),1),"name")
+endfun
+
 autocmd BufNewFile * call TryAlternateFilenames()
+
+" MRU
+let g:MRU_Exclude_Files = '^/tmp/'
+
+hi MatchParen cterm=bold term=bold ctermbg=NONE ctermfg=darkgray
+
+autocmd BufNewFile,BufRead * let b:highlight_space_errors = 1
+autocmd BufNewFile,BufRead * silent! call spaceerror#HLSpaceErr()
