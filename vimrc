@@ -36,6 +36,8 @@ set incsearch hlsearch ignorecase smartcase
 set laststatus=2
 set title
 
+set diffopt=filler,vertical
+
 set titlestring=VIM\ -\ %t%(\ %M%)%(\ (%{expand(\"%:~:.:h\")})%)%(\ %a%)
 if version >= 700
   "set statusline=%<%f\ [%{&fileencoding}%H%R%M]%=%b\ 0x%B\ \ %l,%c%V\ \ %{VimBuddy()}\ \ %P
