@@ -20,7 +20,7 @@ vmap <buffer> <silent> <LocalLeader># <esc>'<O#if 0<esc>'>o#endif<esc>0
 
 set fo-=t fo+=croql
 set cindent
-set cino=(0,:0,g0,t0,N-s,p-s
+set cino=(0,:0,g0,t0,N-s,p-s,w1,W4
 set comments=sr:/*,mbl2:*,ex:*/
 
 set smarttab sw=4 ts=4 et

@@ -100,6 +100,8 @@ endif
 filetype plugin indent on
 let g:filetype_m = 'objc'
 
+let lex_uses_cpp=1
+
 autocmd BufRead,BufNewFile Portfile set nomodeline ft=portfile
 autocmd BufRead,BufNewFile *.a65 set ft=asm syntax=a6502
 autocmd BufRead,BufNewFile *.mod,*.def set ft=modula2
@@ -154,10 +156,6 @@ let g:snips_author = 'Michael Klein'
 " alternate
 let g:alternateExtensions_m = "h"
 let g:alternateExtensions_h = "c,cpp,cxx,cc,CC,m"
-
-" legacy
-autocmd BufWritePre,FileWritePre *.html exe "%g/^ *<!-- _DATE_ -->/s/^\\( *<!-- _DATE_ -->\\).*$/\\1" .  strftime("%a %b %d %T %Z %Y") . "/"
-autocmd BufWritePre,FileWritePre *.sgml exe "%g/^ *<!-- _DATE_ --><date>/s+^\\( *<!-- _DATE_ --><date>\\).*$+\\1" .  strftime("%Y-%m-%d") . "+"
 
 " handle foo.c:123
 function TryAlternateFilenames()
