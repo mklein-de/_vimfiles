@@ -39,10 +39,8 @@ set title
 set diffopt=filler,vertical
 
 set titlestring=VIM\ -\ %t%(\ %M%)%(\ (%{expand(\"%:~:.:h\")})%)%(\ %a%)
-if version >= 700
-  "set statusline=%<%f\ [%{&fileencoding}%H%R%M]%=%b\ 0x%B\ \ %l,%c%V\ \ %{VimBuddy()}\ \ %P
+if version >= 700 && !empty(glob(expand("<sfile>:p:h")."/bundle/fugitive"))
   set statusline=%<%f\ [%{&fileencoding}%{fugitive#statusline()}%H%R%M]%=%b\ 0x%B\ \ %l,%c%V\ \ %{VimBuddy()}\ \ %P
-  "set statusline=%<%f\ [%{&fileencoding}%{fugitive#statusline()}%H%R%M]\ \ %.40{whereami#WhereAmI()}%=%b\ 0x%B\ \ %l,%c%V\ \ %{VimBuddy()}\ \ %P
 else
   set statusline=%<%f\ [%{&fileencoding}%H%R%M]%=%b\ 0x%B\ \ %l,%c%V\ \ %{VimBuddy()}\ \ %P
 endif
