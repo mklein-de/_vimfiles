@@ -1,6 +1,12 @@
 set nocompatible
 filetype off " required during vundle initialization
-set runtimepath+=~/.vim/bundle/Vundle.vim
+
+" Vundle bootstrap
+let s:vundle_path=expand('$HOME/.vim/bundle/Vundle.vim')
+if !filereadable(s:vundle_path.'/.git/config') && confirm("Clone Vundle?","Y\nn") == 1
+    exec '!git clone https://github.com/VundleVim/Vundle.vim '.s_vundle_path
+endif
+exec 'set runtimepath+='.s:vundle_path
 
 call vundle#begin()
 
