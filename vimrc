@@ -1,7 +1,32 @@
-silent! call pathogen#infect()
+set nocompatible
+filetype off " required during vundle initialization
+set runtimepath+=~/.vim/bundle/Vundle.vim
+
+call vundle#begin()
+
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'mileszs/ack.vim'
+Plugin 'mtth/scratch.vim'
+Plugin 'rosenfeld/conque-term'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-unimpaired'
+Plugin 'vim-jp/vim-cpp'
+Plugin 'vim-scripts/Align'
+Plugin 'vim-scripts/The-NERD-tree'
+Plugin 'vim-scripts/a.vim'
+Plugin 'vim-scripts/mru'
+Plugin 'vim-scripts/pydoc.vim'
+Plugin 'vim-scripts/snipMate'
+Plugin 'vim-scripts/taglist.vim'
+
+call vundle#end()
+
+filetype plugin indent on
 
 " misc stuff
-set nocompatible
 set autowrite
 set backspace=indent,eol,start
 set isfname-==
@@ -39,7 +64,7 @@ set title
 set diffopt=filler,vertical
 
 set titlestring=VIM\ -\ %t%(\ %M%)%(\ (%{expand(\"%:~:.:h\")})%)%(\ %a%)
-if version >= 700 && !empty(glob(expand("<sfile>:p:h")."/bundle/fugitive"))
+if version >= 700 && !empty(glob(expand("<sfile>:p:h")."/bundle/vim-fugitive"))
   set statusline=%<%f\ [%{&fileencoding}%{fugitive#statusline()}%H%R%M]%=%b\ 0x%B\ \ %l,%c%V\ \ %{VimBuddy()}\ \ %P
 else
   set statusline=%<%f\ [%{&fileencoding}%H%R%M]%=%b\ 0x%B\ \ %l,%c%V\ \ %{VimBuddy()}\ \ %P
@@ -95,7 +120,6 @@ if version >= 700
   au WinLeave * set nocul
 endif
 
-filetype plugin indent on
 let g:filetype_m = 'objc'
 
 let lex_uses_cpp=1
