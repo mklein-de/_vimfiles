@@ -23,10 +23,10 @@ Plugin 'vim-jp/vim-cpp'
 Plugin 'vim-scripts/Align'
 Plugin 'vim-scripts/The-NERD-tree'
 Plugin 'vim-scripts/a.vim'
-Plugin 'vim-scripts/mru'
 Plugin 'vim-scripts/pydoc.vim'
 Plugin 'vim-scripts/snipMate'
 Plugin 'vim-scripts/taglist.vim'
+Plugin 'yegappan/mru'
 
 call vundle#end()
 
