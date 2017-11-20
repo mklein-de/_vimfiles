@@ -207,6 +207,11 @@ autocmd BufNewFile * call TryAlternateFilenames()
 " MRU
 let g:MRU_Exclude_Files = '^/tmp/'
 
+" ack
+if executable('ag')
+    let g:ackprg = 'ag --vimgrep'
+endif
+
 hi MatchParen cterm=bold term=bold ctermbg=NONE ctermfg=darkgray
 
 autocmd BufNewFile,BufRead * let b:highlight_space_errors = 1
