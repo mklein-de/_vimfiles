@@ -12,6 +12,7 @@ call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'keith/swift.vim'
 Plugin 'mileszs/ack.vim'
 Plugin 'mtth/scratch.vim'
 Plugin 'rosenfeld/conque-term'
