@@ -4,13 +4,14 @@ filetype off " required during vundle initialization
 " Vundle bootstrap
 let s:vundle_path=expand('$HOME/.vim/bundle/Vundle.vim')
 if !filereadable(s:vundle_path.'/.git/config') && confirm("Clone Vundle?","Y\nn") == 1
-    exec '!git clone https://github.com/VundleVim/Vundle.vim '.s:vundle_path
+  exec '!git clone https://github.com/VundleVim/Vundle.vim '.s:vundle_path
 endif
 exec 'set runtimepath+='.s:vundle_path
 
 call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
+Plugin 'Chiel92/vim-autoformat'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'keith/swift.vim'
@@ -40,7 +41,7 @@ set backspace=indent,eol,start
 set isfname-==
 set modelines=5
 set scrolloff=3
-set showbreak=>\ 
+set showbreak=>\
 set showcmd
 set showmatch
 set suffixes=.bak,.swp,.o
@@ -136,6 +137,7 @@ autocmd BufRead,BufNewFile Portfile set nomodeline ft=portfile
 autocmd BufRead,BufNewFile *.a65 set ft=asm syntax=a6502
 autocmd BufRead,BufNewFile *.mod,*.def set ft=modula2
 autocmd BufRead,BufNewFile *.ui set sw=1 et
+autocmd BufWrite * :Autoformat
 
 autocmd BufRead passwords.asc set viminfo=|setlocal noswapfile|exe "silent 1,$!gpg -q --decrypt"|redraw!
 autocmd BufWritePre passwords.asc 1,$!gpg -q --armor --encrypt --default-recipient-self
@@ -172,6 +174,10 @@ nmap <silent> <F12> :make<CR>
 nmap <silent> <F5> \c<space>j
 vmap <silent> <F5> \c<space>
 
+" Autoformat
+nmap <C-k> :Autoformat<CR>
+vmap <C-k> :Autoformat<CR>
+
 nnoremap <Right> <C-w>l
 nnoremap <Left>  <C-w>h
 nnoremap <Up>    <C-w>k
@@ -201,7 +207,7 @@ function TryAlternateFilenames()
 endfun
 
 function SyntaxItem()
-    return synIDattr(synID(line("."),col("."),1),"name")
+  return synIDattr(synID(line("."),col("."),1),"name")
 endfun
 
 autocmd BufNewFile * call TryAlternateFilenames()
@@ -211,7 +217,7 @@ let g:MRU_Exclude_Files = '^/tmp/'
 
 " ack
 if executable('ag')
-    let g:ackprg = 'ag --vimgrep'
+  let g:ackprg = 'ag --vimgrep'
 endif
 
 hi MatchParen cterm=bold term=bold ctermbg=NONE ctermfg=darkgray
