@@ -137,7 +137,7 @@ autocmd BufRead,BufNewFile Portfile set nomodeline ft=portfile
 autocmd BufRead,BufNewFile *.a65 set ft=asm syntax=a6502
 autocmd BufRead,BufNewFile *.mod,*.def set ft=modula2
 autocmd BufRead,BufNewFile *.ui set sw=1 et
-autocmd BufWrite * :Autoformat
+" autocmd BufWrite * :Autoformat
 
 autocmd BufRead passwords.asc set viminfo=|setlocal noswapfile|exe "silent 1,$!gpg -q --decrypt"|redraw!
 autocmd BufWritePre passwords.asc 1,$!gpg -q --armor --encrypt --default-recipient-self
