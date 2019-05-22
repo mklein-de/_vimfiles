@@ -9,9 +9,9 @@ endif
 exec 'set runtimepath+='.s:vundle_path
 
 call vundle#begin()
-
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'Chiel92/vim-autoformat'
+Plugin 'airblade/vim-gitgutter'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'keith/swift.vim'
