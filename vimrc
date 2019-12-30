@@ -14,6 +14,7 @@ Plugin 'Chiel92/vim-autoformat'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'editorconfig/editorconfig-vim'
+Plugin 'embear/vim-localvimrc'
 Plugin 'keith/swift.vim'
 Plugin 'mileszs/ack.vim'
 Plugin 'mtth/scratch.vim'
@@ -215,6 +216,9 @@ let g:MRU_Exclude_Files = '^/tmp/'
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
+
+" localvimrc
+let g:localvimrc_persistent = 2
 
 hi MatchParen cterm=bold term=bold ctermbg=NONE ctermfg=darkgray
 
