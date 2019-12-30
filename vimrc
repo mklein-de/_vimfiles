@@ -27,7 +27,6 @@ Plugin 'vim-scripts/Align'
 Plugin 'vim-scripts/The-NERD-tree'
 Plugin 'vim-scripts/a.vim'
 Plugin 'vim-scripts/pydoc.vim'
-Plugin 'vim-scripts/snipMate'
 Plugin 'vim-scripts/taglist.vim'
 Plugin 'yegappan/mru'
 
@@ -185,9 +184,6 @@ nnoremap <Down>  <C-w>j
 
 nmap <silent> <Leader><space> :call spaceerror#ToggleHLSpaceErr()<CR>
 highlight link SpaceError SpellBad
-
-" snipMate
-let g:snips_author = 'Michael Klein'
 
 " alternate
 let g:alternateExtensions_m = "h"
