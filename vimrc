@@ -110,8 +110,8 @@ function UpdateColors()
 
   " cursorline and current word highlighting
   if &t_Co >= 256
-    au InsertEnter * hi CursorLine ctermbg=lightred    cterm=none
-    au InsertLeave * hi CursorLine ctermbg=lightyellow cterm=none
+    au InsertEnter * hi CursorLine ctermbg=234 cterm=none
+    au InsertLeave * hi CursorLine ctermbg=238 cterm=none
   end
   au InsertEnter * hi CursorLine guibg=lightred
   au InsertLeave * hi CursorLine guibg=yellow
