@@ -57,7 +57,8 @@ if has("gui_running")
     "set guifont=DejaVu\ Sans\ Mono\ 8
     set guifont=Source\ Code\ Pro\ 8
   endif
-
+else
+  set mouse=
 end
 
 " autoindenting
