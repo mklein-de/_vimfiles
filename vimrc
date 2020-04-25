@@ -190,7 +190,6 @@ nnoremap <Up>    <C-w>k
 nnoremap <Down>  <C-w>j
 
 nmap <silent> <Leader><space> :call spaceerror#ToggleHLSpaceErr()<CR>
-highlight link SpaceError SpellBad
 
 " alternate
 let g:alternateExtensions_m = "h"

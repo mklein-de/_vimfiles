@@ -28,3 +28,5 @@ set smarttab sw=4 ts=4 et
 syntax sync minlines=2000
 
 let b:whereami_ctags_opts = "--c-kinds=cfgmnsu"
+
+highlight link SpaceError SpellBad
