@@ -92,7 +92,7 @@ function UpdateColors()
     highlight StatusLine   ctermfg=white ctermbg=darkblue ctermfg=white cterm=none
     highlight StatusLineNC ctermfg=black ctermbg=darkgrey ctermfg=lightgray cterm=none
     highlight Visual       ctermbg=lightblue
-    highlight Search       ctermbg=lightgreen
+    highlight Search       ctermbg=darkgray
     highlight LineNr       ctermfg=darkblue ctermbg=lightgray
   end
 
