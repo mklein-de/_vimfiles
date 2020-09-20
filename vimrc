@@ -171,6 +171,11 @@ nmap <silent> <F10> :cp<CR>
 nmap <silent> <F11> :cn<CR>
 nmap <silent> <F12> :make<CR>
 
+nmap <silent> <C-Home>  :cfirst<CR>
+nmap <silent> <C-PageUp>  :cprev<CR>
+nmap <silent> <C-PageDown>  :cnext<CR>
+nmap <silent> <C-End>  :clast<CR>
+
 " -> enhanced commentify
 nmap <silent> <F5> \c<space>j
 vmap <silent> <F5> \c<space>
