@@ -153,6 +153,9 @@ map Q gq
 command! Lcd lcd %:p:h
 command! Cd cd %:p:h
 
+let g:loaded_youcompleteme = 1
+command! Ycm unlet g:loaded_youcompleteme|runtime plugin/youcompleteme.vim
+
 " global toggle maps
 nmap <silent> <Leader>w :set wrap! wrap?<CR>
 nmap <silent> <Leader>h :set hlsearch! hlsearch?<CR>
