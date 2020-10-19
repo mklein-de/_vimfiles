@@ -2,3 +2,7 @@ bundle
 tags
 .netrwhist
 .*.swp
+plugin/youcompleteme.vim
+autoload/youcompleteme.vim
+doc/youcompleteme.txt
+doc/tags
