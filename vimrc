@@ -57,6 +57,8 @@ if has("gui_running")
     "set guifont=DejaVu\ Sans\ Mono\ 8
     set guifont=Source\ Code\ Pro\ 8
   endif
+  set background=light
+  colorscheme solarized
 else
   set mouse=
 end
@@ -232,6 +234,3 @@ hi MatchParen cterm=bold term=bold ctermbg=NONE ctermfg=darkgray
 
 autocmd BufNewFile,BufRead * let b:highlight_space_errors = 1
 autocmd BufNewFile,BufRead * silent! call spaceerror#HLSpaceErr()
-
-set background=dark
-colorscheme solarized
