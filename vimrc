@@ -18,6 +18,7 @@ Plugin 'embear/vim-localvimrc'
 Plugin 'keith/swift.vim'
 Plugin 'mileszs/ack.vim'
 Plugin 'mtth/scratch.vim'
+Plugin 'rhysd/vim-clang-format'
 Plugin 'rosenfeld/conque-term'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'terryma/vim-multiple-cursors'
@@ -27,7 +28,6 @@ Plugin 'vim-jp/vim-cpp'
 Plugin 'vim-scripts/Align'
 Plugin 'vim-scripts/The-NERD-tree'
 Plugin 'vim-scripts/a.vim'
-Plugin 'vim-scripts/pydoc.vim'
 Plugin 'vim-scripts/taglist.vim'
 Plugin 'yegappan/mru'
 
@@ -232,5 +232,5 @@ let g:localvimrc_persistent = 2
 
 hi MatchParen cterm=bold term=bold ctermbg=NONE ctermfg=darkgray
 
-autocmd BufNewFile,BufRead * let b:highlight_space_errors = 1
+"autocmd BufNewFile,BufRead * let b:highlight_space_errors = 1
 autocmd BufNewFile,BufRead * silent! call spaceerror#HLSpaceErr()
