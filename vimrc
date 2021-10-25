@@ -9,6 +9,9 @@ endif
 exec 'set runtimepath+='.s:vundle_path
 
 call vundle#begin()
+" for vim-clang-format
+Plugin 'kana/vim-operator-user'
+
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'Chiel92/vim-autoformat'
 Plugin 'airblade/vim-gitgutter'

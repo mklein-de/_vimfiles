@@ -18,6 +18,8 @@ endif
 nmap <buffer> <silent> <LocalLeader># :call <SID>CppEndifCmt()<CR>
 vmap <buffer> <silent> <LocalLeader># <esc>'<O#if 0<esc>'>o#endif<esc>0
 
+map <buffer> <LocalLeader>f <Plug>(operator-clang-format)
+
 set fo-=t fo+=croql
 set cindent
 set cino=(0,:0,g0,t0,N-s,p-s,w1,W4
