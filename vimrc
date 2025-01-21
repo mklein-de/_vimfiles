@@ -25,7 +25,6 @@ Plugin 'rhysd/vim-clang-format'
 Plugin 'rosenfeld/conque-term'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'terryma/vim-multiple-cursors'
-Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'vim-jp/vim-cpp'
 Plugin 'vim-scripts/Align'
@@ -79,7 +78,7 @@ set title
 set diffopt=filler,vertical
 
 set titlestring=VIM\ -\ %t%(\ %M%)%(\ (%{expand(\"%:~:.:h\")})%)%(\ %a%)
-if version >= 700 && !empty(glob(expand("<sfile>:p:h")."/bundle/vim-fugitive"))
+if exists('g:loaded_fugitive')
   set statusline=%<%f\ [%{&fileencoding}%{fugitive#statusline()}%H%R%M]%=%b\ 0x%B\ \ %l,%c%V\ \ %{VimBuddy()}\ \ %P
 else
   set statusline=%<%f\ [%{&fileencoding}%H%R%M]%=%b\ 0x%B\ \ %l,%c%V\ \ %{VimBuddy()}\ \ %P
