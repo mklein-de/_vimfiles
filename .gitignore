@@ -2,8 +2,11 @@ bundle
 tags
 .netrwhist
 .*.swp
-plugin/youcompleteme.vim
-autoload/youcompleteme.vim
-doc/youcompleteme.txt
-doc/tags
 autoload/youcompleteme
+autoload/youcompleteme.vim
+autoload/editorconfig.vim
+doc/editorconfig.txt
+doc/tags
+doc/youcompleteme.txt
+plugin/editorconfig.vim
+plugin/youcompleteme.vim
