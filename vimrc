@@ -14,7 +14,6 @@ Plugin 'kana/vim-operator-user'
 
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'Chiel92/vim-autoformat'
-Plugin 'altercation/vim-colors-solarized'
 Plugin 'embear/vim-localvimrc'
 Plugin 'keith/swift.vim'
 Plugin 'mileszs/ack.vim'

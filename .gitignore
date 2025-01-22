@@ -6,3 +6,4 @@ plugin/youcompleteme.vim
 autoload/youcompleteme.vim
 doc/youcompleteme.txt
 doc/tags
+autoload/youcompleteme
